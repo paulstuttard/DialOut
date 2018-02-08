@@ -1,47 +1,109 @@
 {
-    "interactionModel":{
-        "languageModel":{
-            "invocationName":"hello world",
-            "types":[],
-            "intents":[
-                {
-                  "name": "AMAZON.CancelIntent",
-                  "samples": []
-                },
-                {
-                  "name": "AMAZON.HelpIntent",
-                  "samples": []
-                },
-                {
-                  "name": "AMAZON.StopIntent",
-                  "samples": []
-                },
-                {
-                    "name":"HelloWorldIntent",
-                    "slots":[
-
-                    ],
-                    "samples":[
-                        "hello",
-                        "say hello",
-                        "say hello world"
-                    ]
-                },
-                {
-                    "name":"MyNameIsIntent",
-                    "slots":[
-                        {
-                            "name":"name",
-                            "type":"AMAZON.US_FIRST_NAME"
-                        }
-                    ],
-                    "samples":[
-                        "my name is {name}",
-                        "i am {name}",
-                        "you can call me {name}"
-                    ]
-                }
-            ]
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "ringing",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "RingContact",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.GB_FIRST_NAME"
+            },
+            {
+              "name": "fullname",
+              "type": "Fullname"
+            },
+            {
+              "name": "type",
+              "type": "type"
+            }
+          ],
+          "samples": [
+            "{name}",
+            "{fullname}",
+            "{name} {type}",
+            "{fullname} {type}",
+            "{name} at {type}",
+            "{fullname} at {type}"
+          ]
         }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "bransgore garage",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "pom",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "pom bourgein",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "tricia stuttard",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "butcher",
+                "synonyms": []
+              }
+            }
+          ],
+          "name": "Fullname"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "home",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "work",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "mobile",
+                "synonyms": [
+                  "cell",
+                  "cell phone"
+                ]
+              }
+            }
+          ],
+          "name": "type"
+        }
+      ]
     }
+  }
 }

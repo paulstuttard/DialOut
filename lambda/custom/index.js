@@ -15,7 +15,7 @@ var handlers = {
     'LaunchRequest': function () {
         this.response.ask('Who would you like to ring?', 'Please say that again.')
     },
-    'ringContact': function () {
+    'RingContact': function () {
       // This intent can have a few different slots
       // (fullname | name) [type]
       var fullname = this.event.request.intent.slots.fullname.value;
@@ -38,7 +38,7 @@ var handlers = {
           var output = "Do you want me to ring ";
           output += results[this.attributes.callIndex].Fullname; + '?';
           this.emit(':ask', output);
-          
+
         }
       });
     },
