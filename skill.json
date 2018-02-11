@@ -3,28 +3,46 @@
     "publishingInformation": {
       "locales": {
         "en-GB": {
-          "summary": "Sample Short Description",
+          "summary": "Ring contacts using asterisk pbx",
           "examplePhrases": [
-            "Alexa open hello world",
-            "Alexa tell hello world I am Jeff",
-            "Alexa tell hello world my name is Peter"
+            "Alexa start ringing",
+            "Alexa start ringing david",
+            "Alexa start ringing david at work"
+          ],
+          "keywords": [
+            "asterisk",
+            "contacts",
+            "phone",
+            "ring",
+            "dial"
           ],
           "name": "DialOut",
-          "description": "Sample Full Description"
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/66bb/78b430b4d5de426b91c789ada275e0cd/APP_ICON?versionId=ffiRyfG4Hf9r0fmDSospewZl2nXNNDhJ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1518203804&Signature=hsZocZbfoBnwYc44TGoyiy1GIps%3D",
+          "description": "A private skill set up to find phone numbers of contacts and then trigger asterisk PBX to call that number.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4300/c788b28c7ab14aafafdd047b3e645360/APP_ICON_LARGE?versionId=Vz0HW424PZ6DyF9axgUJQavUEyULlSzQ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1518203804&Signature=qbZhDmd0oYvlW%2F2pOsaR6C%2FSNj0%3D"
         }
       },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
-      "distributionCountries": []
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Private skill, needs configuring with home server end point",
+      "category": "COMMUNICATION",
+      "distributionCountries": [
+        "GB"
+      ]
     },
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "lambda/custom"
+          "uri": "arn:aws:lambda:eu-west-1:126880615513:function:DialOut"
         }
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
   }
 }
