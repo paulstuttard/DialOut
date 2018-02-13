@@ -50,13 +50,13 @@ var handlers = {
       // (fullname | name) [type]
       var phrase = "";
       if (this.event.request.intent.slots.fullname.value) {
-        phrase = phrase + this.event.request.intent.slots.fullname.value;
+        phrase = phrase + " " + this.event.request.intent.slots.fullname.value;
       }
       if (this.event.request.intent.slots.name.value) {
-        phrase = phrase + this.event.request.intent.slots.name.value;
+        phrase = phrase + " " + this.event.request.intent.slots.name.value;
       }
       if (this.event.request.intent.slots.type.value) {
-        phrase = phrase + this.event.request.intent.slots.type.value;
+        phrase = phrase + " " + this.event.request.intent.slots.type.value;
       }
       var Proxy = new Asterisk();
 
@@ -65,7 +65,7 @@ var handlers = {
       Proxy.getNumbers(phrase , (results) => {
 
         // Store the results in the session attributes
-        if (results.Error) {
+        if (results.Status != 'OK') {
 
           console.log("Error: ", results.Reason);
           // Failed to get any contacts, inform the user and finish
