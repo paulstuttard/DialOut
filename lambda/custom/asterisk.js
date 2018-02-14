@@ -16,6 +16,43 @@ Asterisk.prototype.connect = function (url, user, pass) {
   console.log("Asterisk.connect", this.proxyURL);
 };
 
+Asterisk.prototype.dialNumber = function (number, clientCallback) {
+  var url = this.proxyURL + "?Number=" + phrase;
+  var options = {
+    uri : url,
+    auth : {
+      username : this.proxyUsername,
+      password : this.proxyPassword,
+      sendImmediately : false
+    }
+  };
+  request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var results = '';
+      console.log("dialNumber body:", body);
+      try {
+        results = JSON.parse(body);
+      } catch (e) {
+        console.log("Parse Failed:", e);
+        var results = {
+          Status : 'ParseError',
+          Reason : 'Could not parse response from Server.'
+        };
+        clientCallback(results);
+      }
+      console.log("dialNumber result:", results);
+      clientCallback(results);
+    } else {
+      console.log("error Response:", response );
+      var results = {
+        Status : 'RequestFail',
+        Reason : 'Could not connect to Server.'
+      };
+      clientCallback(results);
+    }
+  });
+}
+
 Asterisk.prototype.getNumbers = function (phrase, clientCallback) {
   var url = this.proxyURL + "?Name=" + phrase;
   var options = {
@@ -51,5 +88,6 @@ Asterisk.prototype.getNumbers = function (phrase, clientCallback) {
       clientCallback(results);
     }
   });
-}
+};
+
 module.exports = Asterisk;
