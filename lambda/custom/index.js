@@ -59,8 +59,6 @@ var handlers = {
         phrase = phrase + " " + this.event.request.intent.slots.type.value;
       }
       var Proxy = new Asterisk();
-
-      console.log("Attributes", this.attributes);
       Proxy.connect(this.attributes.url, this.attributes.user, this.attributes.pass);
       Proxy.getNumbers(phrase , (results) => {
 
@@ -78,10 +76,12 @@ var handlers = {
           if (this.attributes.myState == 'RINGCONTACT') {
             this.attributes.myState = 'CHECKCONTACT';
             this.attributes.callIndex = 0;
+
             var output = "Do you want me to ring ";
             output += this.attributes.results[this.attributes.callIndex].Fullname; + '?';
             console.log("Try contact: ", this.attributes.results[this.attributes.callIndex].Fullname);
             this.emit(':ask', output);
+
           } else if (this.attributes.myState == 'GETADDRESS'){
             var output = this.attributes.results[0].Fullname;
             output += "'s address is ";
@@ -94,17 +94,44 @@ var handlers = {
     'SessionEndedRequest' : function() {
       console.log('Session ended with reason: ' + this.event.request.reason);
     },
+    'AMAZON.YesIntent' : function() {
+      if (this.attributes.myState == 'CHECKCONTACT') {
+        var output = "Dialing " + this.attributes.results[this.attributes.callIndex].Fullname;
+        //
+        var Proxy = new Asterisk();
+        Proxy.connect(this.attributes.url, this.attributes.user, this.attributes.pass);
+        Proxy.dialNumber(this.attributes.results[this.attributes.callIndex].Number, (results) => {
+          console.log("Dial Results: ", results);
+        });
+        this.emit(':tell', output);
+      }
+      else {
+        this.emit(':tell', 'OK');
+      }
+    },
+    'AMAZON.NoIntent' : function() {
+      if (this.attributes.myState == 'CHECKCONTACT') {
+        this.attributes.callIndex++;
+        if (this.attributes.callindex >= this.attributes.results.length){
+          this.emit(':tell', 'OK, bye.');
+        } else {
+          var output = "Do you want me to ring ";
+          output += this.attributes.results[this.attributes.callIndex].Fullname; + '?';
+          console.log("Try contact: ", this.attributes.results[this.attributes.callIndex].Fullname);
+          this.emit(':ask', output);
+        }
+      } else {
+        this.emit(':tell', 'OK, bye.');
+      }
+    },
     'AMAZON.StopIntent' : function() {
-      this.response.speak('Bye');
-      this.emit(':responseReady');
+      this.emit(':tell', 'OK, bye.');
     },
     'AMAZON.HelpIntent' : function() {
-      this.response.speak("You can try: 'alexa, start dialing David' or 'alexa, start dialing David at home'");
-      this.emit(':responseReady');
+      this.emit(':ask', "You can try: 'alexa, start dialing David' or 'alexa, start dialing David at home'");
     },
     'AMAZON.CancelIntent' : function() {
-      this.response.speak('Bye');
-      this.emit(':responseReady');
+      this.emit(':tell', 'OK, bye.');
     },
     'Unhandled' : function() {
       console.log("Unhandled", this.event.request.intent);
