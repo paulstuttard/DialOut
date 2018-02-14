@@ -36,7 +36,7 @@ function checkAuth(alexa) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.response.ask('Who would you like to ring?', 'Please say that again.')
+        this.emit(':ask', 'Who would you like to ring?', 'Please say that again.')
     },
     'RingContact': function () {
 
