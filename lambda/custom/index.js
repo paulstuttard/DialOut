@@ -38,7 +38,7 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit(':ask', 'Who would you like to ring?', 'Please say that again.')
     },
-    'RingContact': function () {
+    'ContactRing': function () {
 
       this.attributes.myState = 'RINGCONTACT';
       checkAuth(this);
@@ -47,11 +47,8 @@ var handlers = {
     'FindContact' : function () {
 
       // This intent can have a few different slots
-      // (fullname | name) [type]
+      // (nickname| name) [type]
       var phrase = "";
-      if (this.event.request.intent.slots.fullname.value) {
-        phrase = phrase + " " + this.event.request.intent.slots.fullname.value;
-      }
       if (this.event.request.intent.slots.name.value) {
         phrase = phrase + " " + this.event.request.intent.slots.name.value;
       }
