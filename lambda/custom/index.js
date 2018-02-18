@@ -10,6 +10,14 @@ exports.handler = function(event, context) {
     alexa.execute();
 };
 
+function namePronounce(name) {
+  // borS"in
+  // stVttArd
+  name = name.replace("Stuttard", "<phoneme alphabet=\"x-sampa\" ph=\"stVttArd\">Stuttard</phoneme>");
+  name = name.replace("Bourgein", "<phoneme alphabet=\"x-sampa\" ph='borS\"in'>Bourgein</phoneme>");
+  return name;
+}
+
 function checkAuth(alexa) {
   if (alexa.event.session.user.accessToken) {
     var options =  {
@@ -38,21 +46,25 @@ var handlers = {
     'LaunchRequest': function () {
         this.emit(':ask', 'Who would you like to ring?', 'Please say that again.')
     },
+    'ContactAddress': function () {
+      this.attributes.myState = 'GETADDRESS';
+      checkAuth(this);
+    },
     'ContactRing': function () {
-
       this.attributes.myState = 'RINGCONTACT';
       checkAuth(this);
-
     },
     'FindContact' : function () {
 
       // This intent can have a few different slots
       // (nickname| name) [type]
       var phrase = "";
-      if (this.event.request.intent.slots.name.value) {
+      if (this.event.request.intent.slots.name &&
+          this.event.request.intent.slots.name.value) {
         phrase = phrase + " " + this.event.request.intent.slots.name.value;
       }
-      if (this.event.request.intent.slots.type.value) {
+      if (this.event.request.intent.slots.type &&
+          this.event.request.intent.slots.type.value) {
         phrase = phrase + " " + this.event.request.intent.slots.type.value;
       }
       var Proxy = new Asterisk();
@@ -75,14 +87,16 @@ var handlers = {
             this.attributes.callIndex = 0;
 
             var output = "Do you want me to ring ";
-            output += this.attributes.results[this.attributes.callIndex].Fullname; + '?';
+            var name = this.attributes.results[this.attributes.callIndex].Fullname;
+            output += namePronounce(name) + '?';
             console.log("Try contact: ", this.attributes.results[this.attributes.callIndex].Fullname);
             this.emit(':ask', output);
 
           } else if (this.attributes.myState == 'GETADDRESS'){
-            var output = this.attributes.results[0].Fullname;
-            output += "'s address is ";
-            output += this.attributes.results[0].Address;
+            var name = this.attributes.results[0].Fullname;
+            var output = namePronounce(name);
+            output += "'s address is <prosody rate=\"slow\"><say-as interpret-as=\"address\">";
+            output += this.attributes.results[0].Address + "</say-as></prosody>";
             this.emit(':tell', output);
           }
         }
@@ -93,14 +107,16 @@ var handlers = {
     },
     'AMAZON.YesIntent' : function() {
       if (this.attributes.myState == 'CHECKCONTACT') {
-        var output = "Dialing " + this.attributes.results[this.attributes.callIndex].Fullname;
+        var output = "Dialing ";
+        var name = this.attributes.results[this.attributes.callIndex].Fullname;
+        output += namePronounce(name);
         //
         var Proxy = new Asterisk();
         Proxy.connect(this.attributes.url, this.attributes.user, this.attributes.pass);
         Proxy.dialNumber(this.attributes.results[this.attributes.callIndex].Number, (results) => {
           console.log("Dial Results: ", results);
+          this.emit(':tell', output);
         });
-        this.emit(':tell', output);
       }
       else {
         this.emit(':tell', 'OK');
@@ -109,11 +125,12 @@ var handlers = {
     'AMAZON.NoIntent' : function() {
       if (this.attributes.myState == 'CHECKCONTACT') {
         this.attributes.callIndex++;
-        if (this.attributes.callindex >= this.attributes.results.length){
+        if (this.attributes.callIndex >= this.attributes.results.length){
           this.emit(':tell', 'OK, bye.');
         } else {
           var output = "Do you want me to ring ";
-          output += this.attributes.results[this.attributes.callIndex].Fullname; + '?';
+          var name = this.attributes.results[this.attributes.callIndex].Fullname;
+          output += namePronounce(name) + "?";
           console.log("Try contact: ", this.attributes.results[this.attributes.callIndex].Fullname);
           this.emit(':ask', output);
         }

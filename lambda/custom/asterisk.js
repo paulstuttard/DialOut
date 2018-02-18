@@ -17,7 +17,7 @@ Asterisk.prototype.connect = function (url, user, pass) {
 };
 
 Asterisk.prototype.dialNumber = function (number, clientCallback) {
-  var url = this.proxyURL + "?Number=" + phrase;
+  var url = this.proxyURL + "?Dial=1&Number=" + number;
   var options = {
     uri : url,
     auth : {
@@ -26,10 +26,16 @@ Asterisk.prototype.dialNumber = function (number, clientCallback) {
       sendImmediately : false
     }
   };
+  console.log("dialNumber number:", number);
   request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var results = '';
       console.log("dialNumber body:", body);
+      var results = {
+        Status : 'OK'
+      };
+      clientCallback(results);
+
       try {
         results = JSON.parse(body);
       } catch (e) {
