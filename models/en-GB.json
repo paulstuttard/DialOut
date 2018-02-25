@@ -28,7 +28,7 @@
           "slots": [
             {
               "name": "name",
-              "type": "AMAZON.GB_FIRST_NAME"
+              "type": "nickname"
             },
             {
               "name": "type",
@@ -48,12 +48,25 @@
           "slots": [
             {
               "name": "name",
-              "type": "AMAZON.GB_FIRST_NAME"
+              "type": "nickname"
             }
           ],
           "samples": [
             "for the address of {name}",
             "for {name} address"
+          ]
+        },
+        {
+          "name": "ContactBirthday",
+          "slots": [
+            {
+              "name": "name",
+              "type": "nickname"
+            }
+          ],
+          "samples": [
+            "{name} birthday",
+            "when is {name} birthday"
           ]
         }
       ],
@@ -89,636 +102,636 @@
         },
         {
           "values": [
-						{
-							"id": "",
-							"name": {
-								"value": "115",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Alan",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Amy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Andrew",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Andy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Anthony",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Arthur",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Avon Tyrell",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Bartley Lodge",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Bill",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Boots",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Builder",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Butcher",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Chemist",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Chris",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Christchurch",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Christopher",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Chritax",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Daddy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Dave",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "David",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Denise",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Doctors",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Electrician",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Emma",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Eric",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Fanelli",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Florence",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Forest School",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Garage",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Gary",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Gas Man",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "George",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Georgia",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Gill",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Graham",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Hannah",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Helen",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Henry",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Ian",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Jackie",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Janet and John",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Jeff",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Jem",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Jeremy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "John",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Julie",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Katherine",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Katie",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "library",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Lisa",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Littledown",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Liz",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Marketa",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "May",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Mervyn",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Mike",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Mummy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Nursery",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Olivia",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Paul",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Pauline",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Pete",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Peter",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Pharmacy",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Plasterer",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Plumber",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Pom",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Preschool",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Rachel",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Richard",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Roger",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Roz",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Scouts",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Sharon",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Slades",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Sophie",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "specsaver",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Specsavers",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Stepping Stones",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Stour Surgery",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Sue",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Taxi",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Tiler",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Tony",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Tricia",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Voicemail",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Willow",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Winns",
-								"synonyms": []
-							}
-						},
-						{
-							"id": "",
-							"name": {
-								"value": "Work",
-								"synonyms": []
-							}
-						}
+            {
+              "id": "",
+              "name": {
+                "value": "115",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Alan",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Amy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Andrew",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Andy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Anthony",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Arthur",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Avon Tyrell",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Bartley Lodge",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Bill",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Boots",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Builder",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Butcher",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Chemist",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Chris",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Christchurch",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Christopher",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Chritax",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Daddy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Dave",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "David",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Denise",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Doctors",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Electrician",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Emma",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Eric",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Fanelli",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Florence",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Forest School",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Garage",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Gary",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Gas Man",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "George",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Georgia",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Gill",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Graham",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Hannah",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Helen",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Henry",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Ian",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Jackie",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Janet and John",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Jeff",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Jem",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Jeremy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "John",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Julie",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Katherine",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Katie",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "library",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Lisa",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Littledown",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Liz",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Marketa",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "May",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Mervyn",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Mike",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Mummy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Nursery",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Olivia",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Paul",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Pauline",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Pete",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Peter",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Pharmacy",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Plasterer",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Plumber",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Pom",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Preschool",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Rachel",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Richard",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Roger",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Roz",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Scouts",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Sharon",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Slades",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Sophie",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "specsaver",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Specsavers",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Stepping Stones",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Stour Surgery",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Sue",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Taxi",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Tiler",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Tony",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Tricia",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Voicemail",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Willow",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Winns",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "",
+              "name": {
+                "value": "Work",
+                "synonyms": []
+              }
+            }
           ],
           "name": "nickname"
         }

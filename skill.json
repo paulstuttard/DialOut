@@ -16,10 +16,10 @@
             "ring",
             "dial"
           ],
-          "name": "DialOut",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/66bb/78b430b4d5de426b91c789ada275e0cd/APP_ICON?versionId=ffiRyfG4Hf9r0fmDSospewZl2nXNNDhJ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1518203804&Signature=hsZocZbfoBnwYc44TGoyiy1GIps%3D",
+          "name": "Address Book",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/66bb/78b430b4d5de426b91c789ada275e0cd/APP_ICON?versionId=ffiRyfG4Hf9r0fmDSospewZl2nXNNDhJ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1519641865&Signature=a9jrVxkElJFeec%2BbsRATNbuiiP4%3D",
           "description": "A private skill set up to find phone numbers of contacts and then trigger asterisk PBX to call that number.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4300/c788b28c7ab14aafafdd047b3e645360/APP_ICON_LARGE?versionId=Vz0HW424PZ6DyF9axgUJQavUEyULlSzQ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1518203804&Signature=qbZhDmd0oYvlW%2F2pOsaR6C%2FSNj0%3D"
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4300/c788b28c7ab14aafafdd047b3e645360/APP_ICON_LARGE?versionId=Vz0HW424PZ6DyF9axgUJQavUEyULlSzQ&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1519641865&Signature=AFD5rvG5iQiOqvbthJ8LG3zWEf8%3D"
         }
       },
       "isAvailableWorldwide": false,
@@ -33,12 +33,19 @@
       "custom": {
         "endpoint": {
           "sourceDir": "lambda/custom"
-        }
+        },
+        "interfaces": []
       }
     },
     "manifestVersion": "1.0",
     "privacyAndCompliance": {
       "allowsPurchases": false,
+      "locales": {
+        "en-GB": {
+          "termsOfUseUrl": "http://www.lazyfox.org.uk/alexa/terms.php",
+          "privacyPolicyUrl": "http://www.lazyfox.org.uk/alexa/privacy_policy.php"
+        }
+      },
       "isExportCompliant": true,
       "containsAds": false,
       "isChildDirected": false,
