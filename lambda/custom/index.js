@@ -32,21 +32,21 @@ function wordPronounce(name, possessive) {
 function queryRing(alexa, firstTime) {
 
   if (firstTime) {
-    this.attributes.callIndex = 0;
+    alexa.attributes.callIndex = 0;
   } else {
-    this.attributes.callIndex++;
+    alexa.attributes.callIndex++;
   }
 
   var output = "Do you want me to ring ";
-  var index = alex.attributes.callIndex;
-  while (index < alex.attributes.results.length)
+  var index = alexa.attributes.callIndex;
+  while (index < alexa.attributes.results.length)
   {
-    if (alex.attributes.results[index].Number) {
-      alex.attributes.callIndex = index;
-      var name = alex.attributes.results[index].Fullname;
+    if (alexa.attributes.results[index].Number) {
+      alexa.attributes.callIndex = index;
+      var name = alexa.attributes.results[index].Fullname;
       output += wordPronounce(name, false) + '?';
-      console.log("Try contact: ", alex.attributes.results[index].Fullname);
-      alex.emit(':ask', output);
+      console.log("Try contact: ", alexa.attributes.results[index].Fullname);
+      alexa.emit(':ask', output);
     }
     index++;
   }
@@ -55,7 +55,58 @@ function queryRing(alexa, firstTime) {
   } else {
     output = "OK, that was the last match, bye."
   }
-  this.emit(':tell', output);
+  alexa.emit(':tell', output);
+}
+
+function queryAddress(alexa, attempt)
+{
+  if (attempt == 'FIRST') {
+    alexa.attributes.callIndex = 0;
+  } else if (attempt == 'NEXT') {
+    alexa.attributes.callIndex++;
+  }
+
+  var index = alexa.attributes.callIndex;
+  while (index < alexa.attributes.results.length)
+  {
+    if (alexa.attributes.results[index].Address &&
+        (alexa.attributes.results[index].Address.length > 2)) {
+      alexa.attributes.callIndex = index;
+      var name = alexa.attributes.results[index].Fullname;
+      var output = wordPronounce(name, true);
+      output += " address is, "
+      output += alexa.attributes.results[index].Address;
+      output += ". OK?"
+      console.log("Try address: ", alexa.attributes.results[index].Fullname);
+      alexa.emit(':ask', output);
+      return;
+    }
+    index++;
+  }
+  if (attempt == 'FIRST') {
+    if (alexa.attributes.results.length > 0)
+    {
+      output = "I found";
+      var seperator = ' ';
+      for(index=0; index < alexa.attributes.results.length; index++)
+      {
+        output += seperator + wordPronounce(alexa.attributes.results[index].Fullname, false);
+        if (index == alexa.attributes.results.length - 1) {
+          seperator = ' and '
+        } else {
+          seperator = '. ';
+        }
+      }
+      output += " but I do not have their address."
+
+    }
+    else {
+      output = "Sorry, I could not find a contact matching " + wordPronounce(alexa.attributes.phrase, false);
+    }
+  } else {
+    output = "OK, that was the last match, bye."
+  }
+  alexa.emit(':tell', output);
 }
 
 //
@@ -88,7 +139,7 @@ function checkAuth(alexa) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit(':ask', 'Who would you like to ring?', 'Please say that again.')
+        this.emit(':ask', 'Who would you like to ring?', 'Please say that again.');
     },
     'ContactAddress': function () {
       this.attributes.myState = 'GETADDRESS';
@@ -108,12 +159,12 @@ var handlers = {
       if (this.event.request.intent.slots.name &&
           this.event.request.intent.slots.name.value) {
         phrase = phrase + " " + this.event.request.intent.slots.name.value;
-        console.log("Slot[name]: ", this.event.request.intent.slots.name.value)
+        console.log("Slot[name]: ", this.event.request.intent.slots.name.value);
       }
       if (this.event.request.intent.slots.type &&
           this.event.request.intent.slots.type.value) {
         phrase = phrase + " " + this.event.request.intent.slots.type.value;
-        console.log("Slot[name]: ", this.event.request.intent.slots.type.value)
+        console.log("Slot[name]: ", this.event.request.intent.slots.type.value);
       }
       this.attributes.phrase = phrase;
       var Proxy = new Asterisk();
@@ -136,11 +187,9 @@ var handlers = {
             queryRing(this, true);
 
           } else if (this.attributes.myState == 'GETADDRESS'){
-            var name = this.attributes.results[0].Fullname;
-            var output = wordPronounce(name, true);
-            output += " address is, "
-            output += this.attributes.results[0].Address;
-            this.emit(':tell', output);
+            this.attributes.myState = 'CHECKADDRESS';
+            queryAddress(this, 'FIRST');
+
           } else if (this.attributes.myState == 'GETBIRTHDAY'){
             var name = this.attributes.results[0].Fullname;
             var output = wordPronounce(name, true);
@@ -154,6 +203,7 @@ var handlers = {
     'SessionEndedRequest' : function() {
       console.log('Session ended with reason: ' + this.event.request.reason);
     },
+
     'AMAZON.YesIntent' : function() {
       if (this.attributes.myState == 'CHECKCONTACT') {
         var output = "Dialing ";
@@ -171,20 +221,33 @@ var handlers = {
         this.emit(':tell', 'OK');
       }
     },
+
     'AMAZON.NoIntent' : function() {
       if (this.attributes.myState == 'CHECKCONTACT') {
-        dialQuery(this, false);
+        queryRing(this, false);
+      } else if (this.attributes.myState == 'CHECKADDRESS') {
+        queryAddress(this, 'NEXT');
       }
     },
-    'AMAZON.StopIntent' : function() {
-      this.emit(':tell', 'OK, bye.');
+
+    'AMAZON.NextIntent' : function() {
+      this.emit('AMAZON.NoIntent');
     },
+
+    'AMAZON.RepeatIntent' : function() {
+      if (this.attributes.myState == 'CHECKADDRESS') {
+        queryAddress(this, 'REPEAT');
+      }
+    },
+
     'AMAZON.HelpIntent' : function() {
       this.emit(':ask', "You can try: 'ring David' or 'ring David at home' or 'ask address book for David's address' or 'ask address book for David's Birthday'");
     },
+
     'AMAZON.CancelIntent' : function() {
       this.emit(':tell', 'OK, bye.');
     },
+
     'Unhandled' : function() {
       console.log("Unhandled", this.event.request.intent);
       this.response.speak("Sorry, I didn't get that.");
