@@ -139,7 +139,8 @@ function checkAuth(alexa) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit(':ask', 'Who would you like to ring?', 'Please say that again.');
+        this.attributes.myState = 'GETPERSON';
+        this.emit(':ask', 'Whose address, birthday or number do you want to look up?', 'Please say that again.');
     },
     'ContactAddress': function () {
       this.attributes.myState = 'GETADDRESS';
@@ -218,7 +219,7 @@ var handlers = {
         });
       }
       else {
-        this.emit(':tell', 'OK');
+        this.emit(':tell', 'OK, bye');
       }
     },
 
